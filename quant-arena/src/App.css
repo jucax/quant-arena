@@ -1,42 +1,196 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* QuantArena Custom Styles */
+
+/* Remove default body margin for full-height layout */
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Custom gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
-@keyframes logo-spin {
+/* Custom button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-red-500 to-blue-500 text-white font-medium px-4 py-2 rounded-lg hover:from-red-600 hover:to-blue-600 transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 text-white font-medium px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-200;
+}
+
+/* Custom card styles */
+.card {
+  @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+}
+
+/* Custom input styles */
+.input-field {
+  @apply w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Custom table styles */
+.table-header {
+  @apply bg-gray-700 text-sm font-medium text-gray-300 p-4;
+}
+
+.table-row {
+  @apply border-t border-gray-700 p-4 hover:bg-gray-700 transition-colors;
+}
+
+/* Custom badge styles */
+.badge {
+  @apply px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  @apply bg-green-500 text-white;
+}
+
+.badge-warning {
+  @apply bg-yellow-500 text-black;
+}
+
+.badge-error {
+  @apply bg-red-500 text-white;
+}
+
+.badge-info {
+  @apply bg-blue-500 text-white;
+}
+
+/* Custom loading states */
+.loading {
+  @apply animate-pulse bg-gray-700 rounded;
+}
+
+/* Custom transitions */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom shadows */
+.shadow-custom {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Custom scrollbar for webkit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #6B7280;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800;
+}
+
+/* Custom text gradients */
+.text-gradient {
+  @apply bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent;
+}
+
+/* Custom border gradients */
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(#111827, #111827) padding-box,
+              linear-gradient(to right, #ef4444, #3b82f6) border-box;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
-.card {
-  padding: 2em;
+.slide-in {
+  animation: slideIn 0.3s ease-out;
 }
 
-.read-the-docs {
-  color: #888;
+/* Logo animation customizations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(239, 49, 75, 0.3)) drop-shadow(0 0 40px rgba(8, 131, 184, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(239, 49, 75, 0.5)) drop-shadow(0 0 60px rgba(8, 131, 184, 0.5));
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Custom responsive utilities */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
+}
+
+/* Custom dark mode enhancements */
+.dark {
+  color-scheme: dark;
+}
+
+/* Custom selection styles */
+::selection {
+  background-color: #3b82f6;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #3b82f6;
+  color: white;
+}
+
