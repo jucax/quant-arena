@@ -74,6 +74,9 @@ function App() {
             </div>
           </div>
         } />
+        
+        {/* Catch-all route for any unexpected paths */}
+        <Route path="*" element={<Landing />} />
       </Routes>
     </Router>
   )

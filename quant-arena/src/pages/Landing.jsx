@@ -1,42 +1,36 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { 
-  Play, 
-  ArrowRight, 
-  Trophy, 
-  Users, 
-  TrendingUp, 
-  Code,
-  Target,
-  Award,
+import { useNavigate } from 'react-router-dom'
+import {
+  Play,
   Star,
-  Check,
-  Zap,
+  Users,
+  Code,
+  Trophy,
   Shield,
-  Globe,
   BarChart3,
-  Activity,
-  DollarSign,
+  ArrowRight,
+  Check,
   BookOpen,
   GraduationCap
 } from 'lucide-react'
 
 const Landing = () => {
   const [activeTab, setActiveTab] = useState('features')
+  const navigate = useNavigate()
 
   const handleTryDemo = () => {
-    // For now, just navigate to the app
-    window.location.href = '/app'
+    // Use React Router navigation instead of window.location.href
+    navigate('/app')
   }
 
   const handleStartTrial = () => {
     // This would typically open a sign-up modal or redirect to sign-up
     alert('Sign-up functionality coming soon! For now, try the demo.')
-    window.location.href = '/app'
+    navigate('/app')
   }
 
   const handleSignIn = () => {
-    window.location.href = '/register'
+    navigate('/register')
   }
 
   const features = [
@@ -182,7 +176,7 @@ const Landing = () => {
                   Educational Platform - Learn & Practice
                 </span>
               </div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold mb-8">
                 <span className="text-white">
                   Algorithmic Trading
@@ -190,12 +184,12 @@ const Landing = () => {
                 <br />
                 <span className="text-white">Made Accessible</span>
               </h1>
-              
+
               <p className="text-xl text-gray-400 mb-12 max-w-2xl">
-                Learn, practice, and improve your algorithmic trading skills in a supportive community environment. 
+                Learn, practice, and improve your algorithmic trading skills in a supportive community environment.
                 Join thousands of learners in the ultimate educational trading platform.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
                 <button onClick={handleTryDemo} className="bg-gradient-to-r from-quant-red to-quant-blue text-white px-8 py-4 rounded-lg font-medium text-lg hover:from-red-600 hover:to-blue-600 transition-all flex items-center space-x-2">
                   <Play className="w-5 h-5" />
@@ -213,16 +207,16 @@ const Landing = () => {
               <div className="relative">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-quant-red/20 to-quant-blue/20 rounded-full blur-3xl animate-pulse"></div>
-                
+
                 {/* Floating Animation Container */}
                 <div className="relative animate-float">
-                  <img 
-                    src="/assets/quant-arena-logo-1.png" 
-                    alt="QuantArena" 
+                  <img
+                    src="/assets/quant-arena-logo-1.png"
+                    alt="QuantArena"
                     className="w-64 h-64 lg:w-80 lg:h-80 animate-glow"
                   />
                 </div>
-                
+
                 {/* Orbiting Elements */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96">
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-quant-red rounded-full animate-ping"></div>
@@ -267,7 +261,7 @@ const Landing = () => {
               From strategy development to live trading practice, QuantArena provides the complete educational toolkit for algorithmic traders.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon
@@ -346,7 +340,7 @@ const Landing = () => {
               See what our community has to say about QuantArena
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-gray-800 rounded-lg p-8 border border-gray-700">
@@ -382,7 +376,7 @@ const Landing = () => {
               Start learning for free and upgrade as you grow
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {accessPlans.map((plan, index) => (
               <div key={index} className={`bg-gray-800 rounded-lg p-8 border ${
@@ -395,7 +389,7 @@ const Landing = () => {
                     </span>
                   </div>
                 )}
-                
+
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-white mb-4">{plan.name}</h3>
                   <div className="mb-6">
@@ -403,7 +397,7 @@ const Landing = () => {
                     {plan.period && <span className="text-gray-400">{plan.period}</span>}
                   </div>
                 </div>
-                
+
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center space-x-3">
@@ -412,7 +406,7 @@ const Landing = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <button onClick={plan.name === 'Community Access' ? handleTryDemo : handleStartTrial} className={`w-full py-3 rounded-lg font-medium transition-all ${
                   plan.popular
                     ? 'bg-gradient-to-r from-quant-red to-quant-blue text-white hover:from-red-600 hover:to-blue-600'
@@ -462,7 +456,7 @@ const Landing = () => {
                 The ultimate educational platform for algorithmic trading practice.
               </p>
             </div>
-            
+
             <div>
               <h3 className="text-white font-semibold mb-4">Platform</h3>
               <ul className="space-y-2">
@@ -472,7 +466,7 @@ const Landing = () => {
                 <li><a href="#" className="text-gray-400 hover:text-white">Documentation</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-white font-semibold mb-4">Community</h3>
               <ul className="space-y-2">
@@ -482,7 +476,7 @@ const Landing = () => {
                 <li><a href="#" className="text-gray-400 hover:text-white">Contact</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-white font-semibold mb-4">Support</h3>
               <ul className="space-y-2">
@@ -493,7 +487,7 @@ const Landing = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
             <p className="text-gray-400">
               © 2024 QuantArena. Educational platform for algorithmic trading practice.
